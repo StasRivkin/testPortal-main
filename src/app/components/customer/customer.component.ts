@@ -40,7 +40,7 @@ export class CustomerComponent implements OnInit {
          if (res.lastError != undefined){
             this.SohoMessageService.error({ title: "שגיאה", message: res.message + " " + res.lastError, showCloseBtn: true }).open();
          }else{
-            this.SohoMessageService.alert({ title: "OK", message: res.message + "OK", showCloseBtn: true }).open();
+            this.SohoMessageService.message({ title: "מעודכן", message: "עודכן בהצלחה", showCloseBtn: true }).open();
          }
 
 
