@@ -1,8 +1,0 @@
-{
-   "/api": {
-     "target": "https://crs610-latest.onrender.com",
-     "secure": false,
-     "changeOrigin": true,
-     "logLevel": "debug"
-   }
- }
