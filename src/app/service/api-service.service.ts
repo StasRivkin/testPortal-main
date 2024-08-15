@@ -17,7 +17,7 @@ export class ApiServiceService {
       return this.http.post<any>(this.baseUrl, parameters)
         .pipe(
           catchError(error => this.handleError(error)),
-          map(response => response.error ? response.error : response.results[0].Records[0])
+          map(response => response.error ? response.error : response.results[0].records[0])
         );
     }
 
