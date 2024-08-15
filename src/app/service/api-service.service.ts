@@ -8,7 +8,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class ApiServiceService {
 
-   private baseUrl = 'https://crs610-latest.onrender.com/sendCRS610';
+   private baseUrl = '/api/sendCRS610';
 
    constructor(private http: HttpClient) {
    }
