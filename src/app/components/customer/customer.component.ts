@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiServiceService} from 'src/app/service/api-service.service';
-import {lastValueFrom} from 'rxjs';
+import { ApiServiceService } from 'src/app/service/api-service.service';
+import { lastValueFrom } from 'rxjs';
 import { SohoMessageService } from 'ids-enterprise-ng';
-import {Log} from '@infor-up/m3-odin';
+import { Log } from '@infor-up/m3-odin';
 
 @Component({
    selector: 'app-customer',
@@ -19,9 +19,9 @@ export class CustomerComponent implements OnInit {
 
    constructor(
       private apiService: ApiServiceService,
-      private SohoMessageService:SohoMessageService,
+      private SohoMessageService: SohoMessageService,
 
-   ) {}
+   ) { }
 
    ngOnInit(): void {
    }
@@ -34,7 +34,7 @@ export class CustomerComponent implements OnInit {
          eMail: this.customerEmail
       };
       try {
-         const res = await lastValueFrom(this.apiService.getRequest(inputFields));
+         const res = await lastValueFrom(this.apiService.postRequest(inputFields));
          Log.error("error");
          Log.info(JSON.stringify(res));
          if (res.lastError != undefined)

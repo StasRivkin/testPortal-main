@@ -13,28 +13,16 @@ export class ApiServiceService {
    constructor(private http: HttpClient) {
    }
 
-   getRequest(parameters: any): Observable<any> {
+   postRequest(parameters: any): Observable<any> {
+      return this.http.post<any>(this.baseUrl, parameters)
+        .pipe(
+          catchError(error => this.handleError(error)),
+          map(response => response.error ? response.error : response.results[0].Records[0])
+        );
+    }
 
-     let params = new HttpParams();
-
-     for (const key in parameters) {
-       if (parameters.hasOwnProperty(key)) {
-         params = params.set(key, parameters[key]);
-       }
-     }
-     return this.http.request<any>('GET',this.baseUrl,{body: parameters})
-       .pipe(
-         catchError(error => this.handleError(error)),
-         map(response => response.error?response.error: response.results[0].Records[0])
-       );
-
-
-
-
-   }
-
-   private handleError(error: any): Observable<never> {
-     console.error('API Error:', error);
-     return throwError('Error in request.');
-   }
-}
+    private handleError(error: any): Observable<never> {
+      console.error('API Error:', error);
+      return throwError('Error in request.');
+    }
+  }
