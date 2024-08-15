@@ -82,7 +82,8 @@
                      "browserTarget": "testPortal:build:production"
                   },
                   "development": {
-                     "browserTarget": "testPortal:build:development"
+                     "browserTarget": "testPortal:build:development",
+                     "proxyConfig": "proxy.conf.json"
                   }
                },
                "defaultConfiguration": "development"
