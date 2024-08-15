@@ -37,8 +37,12 @@ export class CustomerComponent implements OnInit {
          const res = await lastValueFrom(this.apiService.postRequest(inputFields));
          Log.error("error");
          Log.info(JSON.stringify(res));
-         if (res.lastError != undefined)
+         if (res.lastError != undefined){
             this.SohoMessageService.error({ title: "שגיאה", message: res.message + " " + res.lastError, showCloseBtn: true }).open();
+         }else{
+            this.SohoMessageService.alert({ title: "OK", message: res.message + "OK", showCloseBtn: true }).open();
+         }
+
 
       } catch (error) {
          Log.error(error);
